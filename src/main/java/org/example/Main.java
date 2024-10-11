@@ -1,54 +1,27 @@
 package org.example.models;
 
-public class Patient extends User {
-    //Atributos
-    private String birthday;
-    private double weight;
-    private double height;
-    private String blood;
+import java.util.Date;
 
-    Patient (String name, String email){
-        super(name, email);
-    }
+public class Main {
+    public static void main(String[] args) {
 
-    // 54.5
-    public void setWeight(double weight) {
-        this.weight = weight;
-    }
+        //UIMenu.showMenu();
 
-    // 54.5 Kg. String
-    public String getWeight(){
-        return this.weight + " Kg.";
-    }
+        Doctor myDoctor = new Doctor("Uriel","Pedriatria");
+        myDoctor.addAvailableAppointment(new Date(), "4 pm");
+        myDoctor.addAvailableAppointment(new Date(), "10 am");
+        myDoctor.addAvailableAppointment(new Date(), "1 pm");
+        System.out.println(myDoctor);
 
+        for (Doctor.AvailableAppointment aA: myDoctor.getAvailableAppointments()) {
+            System.out.println(aA.getDate() + " " +aA.getTime());
+        }
 
-    public String getHeight() {
-        return height + " Mts.";
-    }
+        Patient myPatient = new Patient("Alejandra", "alejandra@gmail.com");
+        System.out.println(myPatient);
 
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
-    public String getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
-    }
-
-
-
-    public String getBlood() {
-        return blood;
-    }
-
-    public void setBlood(String blood) {
-        this.blood = blood;
-    }
-    @Override
-    public String toString() {
-        return super.toString() + "\nAge: " + birthday + "\nWeight: " + getWeight() + "\nHeight: " + getHeight() + "\nBlood: "+blood;
     }
 }
+
+
+
